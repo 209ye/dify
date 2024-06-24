@@ -906,10 +906,20 @@ class OpenAILargeLanguageModel(_CommonOpenAI, LargeLanguageModel):
         :param tools: tools for tool calling
         :return: number of tokens
         """
-        try:
-            encoding = tiktoken.encoding_for_model(model)
-        except KeyError:
-            encoding = tiktoken.get_encoding("cl100k_base")
+        class Encoding():
+            def __init__(self, base_pri):
+                self.base_pri = base_pri
+
+            def encode(self, item):
+                return self.base_pri._get_num_tokens_by_gpt2(item)
+        encoding = Encoding(self)
+
+        # try:
+        #     encoding = tiktoken.encoding_for_model(model)
+        # except KeyError:
+        #     encoding = tiktoken.get_encoding("cl100k_base")
+
+        encoding = Encoding(self)
 
         num_tokens = len(encoding.encode(text))
 

@@ -3,6 +3,8 @@ import os
 import dotenv
 
 DEFAULTS = {
+    'CHECK_UPDATE_URL': '',
+    'HOSTED_FETCH_APP_TEMPLATES_MODE': 'builtin',
 }
 
 
@@ -39,3 +41,7 @@ class Config:
             'CONSOLE_CORS_ALLOW_ORIGINS', get_env('CONSOLE_WEB_URL'))
         self.WEB_API_CORS_ALLOW_ORIGINS = get_cors_allow_origins(
             'WEB_API_CORS_ALLOW_ORIGINS', '*')
+        self.CUSTOM_CLIENT_ID = get_env('CUSTOM_CLIENT_ID')
+        self.CUSTOM_CLIENT_SECRET = get_env('CUSTOM_CLIENT_SECRET')
+        self.CUSTOM_HOST = get_env('CUSTOM_HOST')
+
