@@ -173,8 +173,8 @@ class DatasetProcessRule(db.Model):
         ],
         'segmentation': {
             'delimiter': '\n',
-            'max_tokens': 500,
-            'chunk_overlap': 50
+            'max_tokens': 300,
+            'chunk_overlap': 34
         }
     }
 

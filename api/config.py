@@ -28,7 +28,7 @@ DEFAULTS = {
     'S3_ADDRESS_STYLE': 'auto',
     'STORAGE_TYPE': 'local',
     'STORAGE_LOCAL_PATH': 'storage',
-    'CHECK_UPDATE_URL': 'https://updates.dify.ai',
+    'CHECK_UPDATE_URL': '',
     'DEPLOY_ENV': 'PRODUCTION',
     'SQLALCHEMY_DATABASE_URI_SCHEME': 'postgresql',
     'SQLALCHEMY_POOL_SIZE': 30,
@@ -60,7 +60,7 @@ DEFAULTS = {
     'HOSTED_ANTHROPIC_PAID_ENABLED': 'False',
     'HOSTED_MODERATION_ENABLED': 'False',
     'HOSTED_MODERATION_PROVIDERS': '',
-    'HOSTED_FETCH_APP_TEMPLATES_MODE': 'remote',
+    'HOSTED_FETCH_APP_TEMPLATES_MODE': 'builtin',
     'HOSTED_FETCH_APP_TEMPLATES_REMOTE_DOMAIN': 'https://tmpl.dify.ai',
     'CLEAN_DAY_SETTING': 30,
     'UPLOAD_FILE_SIZE_LIMIT': 15,
@@ -404,6 +404,9 @@ class Config:
         self.GITHUB_CLIENT_SECRET = get_env('GITHUB_CLIENT_SECRET')
         self.GOOGLE_CLIENT_ID = get_env('GOOGLE_CLIENT_ID')
         self.GOOGLE_CLIENT_SECRET = get_env('GOOGLE_CLIENT_SECRET')
+        self.CUSTOM_CLIENT_ID = get_env('CUSTOM_CLIENT_ID')
+        self.CUSTOM_CLIENT_SECRET = get_env('CUSTOM_CLIENT_SECRET')
+        self.CUSTOM_HOST = get_env('CUSTOM_HOST')
         self.OAUTH_REDIRECT_PATH = get_env('OAUTH_REDIRECT_PATH')
 
         self.HOSTED_OPENAI_API_KEY = get_env('HOSTED_OPENAI_API_KEY')

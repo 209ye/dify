@@ -23,6 +23,10 @@ export default function IntegrationsPage() {
       name: t('common.integrations.github'),
       description: t('common.integrations.githubAccount'),
     },
+    custom: {
+      name: '火星',
+      description: '火星 账号登录',
+    },
   }
 
   const { data } = useSWR({ url: '/account/integrates' }, fetchAccountIntegrates)
